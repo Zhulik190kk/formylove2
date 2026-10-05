@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0b10">
+<meta name="description" content="Для тебя. От меня.">
+<title>Для моей Мамбочки 🤍</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+:root{
+  --bg:#0b090d;
+  --text:#f7f3f0;
+  --muted:#b8afb5;
+  --rose:#e9a8b7;
+  --rose2:#f7cbd5;
+  --line:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Manrope,system-ui,sans-serif;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+section{position:relative}
+.container{width:min(1100px,92%);margin:auto}
+.hero{
+  min-height:100svh;display:grid;place-items:center;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(233,168,183,.16),transparent 32%),
+    linear-gradient(180deg,#09080b 0%,#0e0b10 100%);
+}
+.hero-bg{
+  position:absolute;inset:0;background:url("assets/main.jpg") center/cover no-repeat;
+  filter:brightness(.42) saturate(.85);transform:scale(1.04);
+}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,7,.18),#0b090d 93%)}
+.hero-content{z-index:2;text-align:center;padding:30px 0}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:11px;color:var(--rose2);opacity:.9}
+h1{
+  font-family:"Playfair Display",serif;font-size:clamp(48px,11vw,105px);
+  line-height:.95;font-weight:500;margin:24px 0 20px;
+}
+.hero p{max-width:580px;margin:0 auto;color:#ddd3d8;line-height:1.7;font-size:15px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding:14px 23px;
+  border:1px solid rgba(255,255,255,.22);border-radius:999px;color:white;
+  text-decoration:none;background:rgba(255,255,255,.07);backdrop-filter:blur(12px);
+  transition:.35s;cursor:pointer;font:inherit;
+}
+.btn:hover{transform:translateY(-3px);background:rgba(233,168,183,.18);border-color:var(--rose)}
+.scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:11px;color:#a9a0a5;letter-spacing:.16em;text-transform:uppercase}
+.scroll span{display:block;width:1px;height:35px;background:linear-gradient(var(--rose),transparent);margin:9px auto 0}
+.reveal{opacity:0;transform:translateY(28px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:none}
+
+.intro{padding:120px 0 80px;text-align:center}
+.kicker{color:var(--rose);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.intro h2,.letter h2{
+  font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(36px,7vw,66px);
+  line-height:1.05;margin:18px 0 22px;
+}
+.intro p{max-width:650px;margin:auto;color:var(--muted);line-height:1.9}
+.mamba{
+  display:inline-block;color:var(--rose2);font-family:"Playfair Display",serif;font-style:italic;
+}
+
+.gallery{padding:20px 0 130px}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch}
+.card{overflow:hidden;border-radius:28px;position:relative;background:#171319}
+.card img{width:100%;height:100%;display:block;object-fit:cover;transition:transform 1.2s}
+.card:hover img{transform:scale(1.035)}
+.card.big{min-height:650px}
+.side{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.side .card{min-height:315px}
+.caption{
+  position:absolute;left:22px;right:22px;bottom:20px;padding:14px 16px;
+  border-radius:18px;background:rgba(10,8,12,.48);backdrop-filter:blur(14px);
+  color:#eee;font-size:13px;line-height:1.5;
+}
+
+.story{padding:120px 0;background:linear-gradient(180deg,#0b090d,#120d12,#0b090d)}
+.story-wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:70px;align-items:start}
+.date{
+  position:sticky;top:30px;font-family:"Playfair Display",serif;font-size:clamp(45px,7vw,78px);
+  line-height:1;color:var(--rose2);
+}
+.date small{display:block;font-family:Manrope;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:16px}
+.story-text h3{font-family:"Playfair Display",serif;font-size:40px;font-weight:500;margin:0 0 20px}
+.story-text p{color:#c5bcc1;line-height:1.95;font-size:16px;margin:0 0 22px}
+.quote{
+  margin-top:40px;padding:28px 0 28px 28px;border-left:1px solid var(--rose);
+  font-family:"Playfair Display",serif;font-size:25px;line-height:1.5;font-style:italic;color:#f3e8ec;
+}
+
+.food{padding:120px 0}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.food-copy h2{font-family:"Playfair Display",serif;font-size:clamp(38px,6vw,60px);font-weight:500;line-height:1.05;margin:15px 0 20px}
+.food-copy p{color:var(--muted);line-height:1.9}
+.food-list{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.food-pill{padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:#d7cdd2;font-size:12px}
+.mini-photo{border-radius:28px;overflow:hidden;transform:rotate(2deg);box-shadow:0 25px 70px rgba(0,0,0,.35)}
+.mini-photo img{display:block;width:100%}
+
+.letter{padding:140px 0;text-align:center}
+.letter-card{
+  width:min(800px,100%);margin:auto;padding:55px 7%;border:1px solid var(--line);
+  border-radius:34px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  box-shadow:0 30px 100px rgba(0,0,0,.3);
+}
+.letter-text{text-align:left;color:#d1c7cc;line-height:2;font-size:15px}
+.letter-text p{margin:0 0 20px}
+.signature{font-family:"Playfair Display",serif;font-size:27px;color:var(--rose2);font-style:italic;margin-top:35px}
+.final{min-height:90svh;display:grid;place-items:center;text-align:center;padding:80px 0}
+.final-bg{position:absolute;inset:0;background:url("assets/forest.jpg") center/cover;filter:brightness(.35)}
+.final:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0b090d 0%,rgba(8,6,9,.25),#0b090d 100%)}
+.final-content{z-index:2;max-width:720px}
+.final h2{font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(43px,8vw,82px);line-height:1.02;margin:20px 0}
+.final p{color:#ddd2d7;line-height:1.9}
+.heart{font-size:28px;display:inline-block;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+footer{text-align:center;padding:25px;color:#6f676c;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+
+#sparkles{position:fixed;inset:0;pointer-events:none;z-index:50}
+.spark{position:absolute;width:5px;height:5px;border-radius:50%;background:#ffdbe4;animation:fall 1.4s ease-out forwards}
+@keyframes fall{0%{opacity:0;transform:translateY(-10px) scale(.2)}20%{opacity:1}100%{opacity:0;transform:translateY(180px) scale(1.4)}}
+
+@media(max-width:760px){
+  .hero-bg{background-position:53% center}
+  .intro{padding:95px 0 60px}
+  .grid,.food-grid,.story-wrap{grid-template-columns:1fr;gap:18px}
+  .card.big{min-height:520px}.side .card{min-height:280px}
+  .story-wrap{gap:35px}.date{position:static}
+  .food{padding:80px 0}.food-grid{gap:50px}
+  .letter{padding:90px 0}.letter-card{padding:40px 25px;border-radius:25px}
+}
+</style>
+</head>
+<body>
+<div id="sparkles"></div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content reveal">
+    <div class="eyebrow">для одной очень вредной девочки</div>
+    <h1>Привет,<br><em>Кнопа.</em></h1>
+    <p>Я сделал тебе одну маленькую вещь. Не для того, чтобы что-то доказать или заставить тебя принять решение. Просто открой её до конца.</p>
+    <a class="btn" href="#start" id="openBtn">Открыть 🤍</a>
+  </div>
+  <div class="scroll">листай<span></span></div>
+</section>
+
+<section class="intro" id="start">
+  <div class="container reveal">
+    <div class="kicker">если ты сейчас улыбаешься — всё получилось</div>
+    <h2>Да, это <span class="mamba">мы.</span></h2>
+    <p>Не идеальные. Не всегда серьёзные. Иногда вообще два каких-то придурка. Но настоящие. И среди всех фотографий я почему-то особенно люблю именно такие — где мы просто мы.</p>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <div class="grid">
+      <div class="card big reveal">
+        <img src="assets/main.jpg" alt="Мы вместе">
+        <div class="caption">Иногда одна фотография говорит намного больше, чем тысяча сообщений.</div>
+      </div>
+      <div class="side">
+        <div class="card reveal">
+          <img src="assets/funny1.jpg" alt="Наше смешное фото">
+          <div class="caption">Вот это лицо я, конечно, никогда не забуду 😂</div>
+        </div>
+        <div class="card reveal">
+          <img src="assets/funny2.jpg" alt="Наше смешное фото">
+          <div class="caption">А вот здесь мы просто были сами собой</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container story-wrap">
+    <div class="date reveal">20.06.21<small>дата, с которой всё началось</small></div>
+    <div class="story-text reveal">
+      <div class="kicker">и вот что смешно</div>
+      <h3>Мы даже не знали,<br>сколько всего впереди.</h3>
+      <p>Пять лет — это очень много. За это время люди меняются. Мы сами изменились. Но я иногда думаю, как удивительно, что когда-то два человека просто выбрали друг друга — и с этого момента началась целая маленькая вселенная.</p>
+      <p>В ней было всё: поездки, прогулки, разговоры, дурацкие фотографии, обиды, примирения, смех и, конечно, еда.</p>
+      <div class="quote">«Нам было вообще не важно, где кушать. Главное — чтобы вкусно. Мак, ресторан, что угодно. Главное — вместе.»</div>
+    </div>
+  </div>
+</section>
+
+<section class="food">
+  <div class="container food-grid">
+    <div class="food-copy reveal">
+      <div class="kicker">наши очень важные традиции</div>
+      <h2>Покушать.<br>Погулять.<br>Поругаться. 😂</h2>
+      <p>И почему-то именно в этом я всегда находил что-то очень родное. Особенно когда я опоздал на свидание или не придумал, чем мы будем заниматься — и видел твои злые глаза.</p>
+      <div class="food-list">
+        <span class="food-pill">🍔 вкусно покушать</span>
+        <span class="food-pill">👀 злые глаза</span>
+        <span class="food-pill">😂 поржать</span>
+        <span class="food-pill">🤍 снова помириться</span>
+      </div>
+    </div>
+    <div class="mini-photo reveal"><img src="assets/forest.jpg" alt="Мы в лесу"></div>
+  </div>
+</section>
+
+<section class="letter">
+  <div class="container">
+    <div class="letter-card reveal">
+      <div class="kicker">то, что я хотел сказать</div>
+      <h2>Без давления.</h2>
+      <div class="letter-text">
+        <p>Я не сделал этот сайт, чтобы заставить тебя что-то решить. И не хочу превращать наши чувства в просьбы, уговоры или чувство вины.</p>
+        <p>Я просто хотел оставить здесь кусочек того, что было между нами. Потому что каким бы ни оказался наш следующий шаг, эти пять лет для меня никогда не станут чем-то неважным.</p>
+        <p>Я всё ещё люблю тебя. И, наверное, самое честное, что я могу сказать сейчас — я всё ещё выбираю тебя.</p>
+        <p>Не потому что боюсь тебя потерять. Не потому что привык. А потому что, несмотря на всё, если меня спросить, с кем я хочу однажды снова посмотреть назад на всю эту историю и сказать «мы всё-таки справились» — я думаю о тебе.</p>
+        <p>И если однажды ты посмотришь на всё это иначе, я хочу, чтобы ты знала: я не хочу, чтобы мы стали просто двумя людьми из прошлого.</p>
+        <div class="signature">Твой. Если позволишь. 🤍</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="final-bg"></div>
+  <div class="final-content reveal">
+    <div class="kicker">и последнее</div>
+    <h2>Я хочу, чтобы однажды мы посмотрели на это и поняли, что всё-таки выбрали друг друга.</h2>
+    <p>А пока просто улыбнись. Ты ведь знаешь, как я люблю, когда ты улыбаешься.</p>
+    <div class="heart">♥</div>
+  </div>
+</section>
+
+<footer>20.06.21 — ∞</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.getElementById('openBtn').addEventListener('click',()=>{
+  const box=document.getElementById('sparkles');
+  for(let i=0;i<28;i++){
+    const s=document.createElement('i'); s.className='spark';
+    s.style.left=(45+Math.random()*10)+'%';
+    s.style.top=(38+Math.random()*10)+'%';
+    s.style.animationDelay=(Math.random()*.35)+'s';
+    box.appendChild(s);
+    setTimeout(()=>s.remove(),1800);
+  }
+});
+</script>
+</body>
+</html>
